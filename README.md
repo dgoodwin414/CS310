@@ -1,2 +1,4 @@
-# CS310
-Repository for CS310
+CS310 C++ H1
+Contributors H2
+* Dalton Goodwin
+* Dr. Flowers
