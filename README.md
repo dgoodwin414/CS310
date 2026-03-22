@@ -1,4 +1,4 @@
-H1 CS310 C++
-H2 Contributors
+# CS310 C++
+## Contributors
 * Dalton Goodwin
 * Dr. Flowers
