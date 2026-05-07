@@ -1,6 +1,6 @@
 /*
 * Student Name: Dalton Goodwin
-* File Name: week8_Discussion
+* File Name: week8_Discussion.cpp
 * Date: 5/6/2026
 */
 
@@ -15,6 +15,18 @@ private:
     bool outOfTune;
 
 public:
+    //sets default values when an instrument object is created
+    Instrument() {
+        gearTitle = "Unknown Instrument";
+        makerLabel = "Unknown Maker";
+        outOfTune = true;
+    }
+
+    //shows when the instrument object is no longer being used
+    ~Instrument() {
+        cout << "Instrument record closed." << endl;
+    }
+
     //sets the basic instrument information
     void setInstrumentInfo(string title, string maker) {
         gearTitle = title;
@@ -27,9 +39,14 @@ public:
         outOfTune = false;
     }
 
-    //changes the tuning status if the instrument needs work again
-    void markNeedsTuning() {
-        outOfTune = true;
+    //returns the instrument name
+    string getInstrumentName() {
+        return gearTitle;
+    }
+
+    //returns the brand or maker name
+    string getMakerLabel() {
+        return makerLabel;
     }
 
     //prints the instrument information
@@ -37,18 +54,13 @@ public:
         cout << "Instrument: " << gearTitle << endl;
         cout << "Brand: " << makerLabel << endl;
 
-        //checks if the instrument needs to be tuned
+        //checks if the instrument needs tuning
         if (outOfTune) {
             cout << "Tuning Status: Needs Tuning" << endl;
         }
         else {
             cout << "Tuning Status: Ready To Play" << endl;
         }
-    }
-
-    //returns the instrument name
-    string getInstrumentName() {
-        return gearTitle;
     }
 };
 
@@ -59,16 +71,37 @@ private:
     Instrument stageGear;
 
 public:
+    //sets default values when a musician object is created
+    Musician() {
+        stageName = "Unknown Musician";
+        preferredGenre = "Unknown Genre";
+    }
+
+    //shows when the musician object is no longer being used
+    ~Musician() {
+        cout << "Musician record closed." << endl;
+    }
+
     //sets the musician information
     void setMusicianInfo(string nameTag, string genreChoice) {
         stageName = nameTag;
         preferredGenre = genreChoice;
     }
 
-    //assigns the main instrument to the musician
+    //assigns an instrument to the musician
     void assignInstrument(Instrument pickedGear) {
         stageGear = pickedGear;
         stageGear.tuneInstrument();
+    }
+
+    //returns the musician name
+    string getMusicianName() {
+        return stageName;
+    }
+
+    //returns the musician genre
+    string getPreferredGenre() {
+        return preferredGenre;
     }
 
     //prints the musician information
@@ -76,14 +109,9 @@ public:
         cout << "Musician Name: " << stageName << endl;
         cout << "Music Style: " << preferredGenre << endl;
 
-        //prints the musician's main instrument
+        //prints the musician's assigned instrument
         cout << "Main Instrument:" << endl;
         stageGear.printInstrumentInfo()
-    }
-
-    //returns the musician name
-    string getMusicianName() {
-        return stageName;
     }
 };
 
@@ -97,10 +125,10 @@ int main() {
     //stores information about the musician
     localBandMate.setMusicianInfo("Jace", "Rock");
 
-    //assigns the guitar to the band member
+    //assigns the guitar to the musician
     localBandMate.assignInstrument(garageGuitar);
 
-    //prints the full musician record
+    //prints the musician and instrument information
     localBandMate.printMusicianInfo();
 
     //prints the instrument name by using the musician object
