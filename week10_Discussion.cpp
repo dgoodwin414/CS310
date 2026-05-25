@@ -23,13 +23,13 @@ int main() {
     int usedPorts = 20;
 
     //this pointer stores the memory address of the switch number
-    int* switchPtr = &switchNumber;
+    int* switchPtr = switchNumber;
 
     //this pointer stores the memory address of the open port count
     int* openPortPtr = &openPorts;
 
     //this pointer stores the memory address of the used port count
-    int* usedPortPtr = &usedPorts;
+    int* usedPortPtr = &usedPorts
 
     //this prints the switch number before any updates are made
     cout << "Switch Number: " << *switchPtr << endl;
@@ -44,13 +44,13 @@ int main() {
     *openPortPtr = *openPortPtr + 3;
 
     //this lowers the number of used ports after those devices are removed
-    *usedPortPtr = *usedPortPtr - 3;
+    usedPortPtr = usedPortPtr - 3;
 
     //this prints the new number of open ports after the update
     cout << "Updated Open Ports: " << *openPortPtr << endl;
 
     //this prints the new number of used ports after the update
-    cout << "Updated Used Ports: " << *usedPortPtr << endl;
+    cout << "Updated Used Ports: " << usedPortPtr << endl;
 
     //this prints a final message after the switch record is reviewed
     cout << "Switch record checked" << endl;
